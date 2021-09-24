@@ -1,0 +1,65 @@
+<div class="container container-fluid">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="card col col-sm-3 linha" style="width: 18rem;" *ngFor="let prodAtual of listaDeProdutos | async">
+            <div class="card-body">
+            <h5 class="card-title">{{prodAtual.nome}}</h5>
+            <p class="card-text">{{prodAtual.descricao}} </p>
+            <label> Estoque: {{prodAtual.qtde }} </label>
+            <br/> <br/>
+            <label> Valor: {{prodAtual.valor | currency: 'BRL': true}} </label>
+            <br/> <br/>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="carregarFormulario(prodAtual.id_produto)">
+                Alterar Produto
+              </button>
+            <br/> <br/>
+            <button class="btn btn-outline-danger" (click)="deletarProduto(prodAtual.id_produto)"> Excluir </button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Alteração de produtos</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+            <form class="form-group" [formGroup]="formAlteracao" (ngSubmit)="alterarProduto()">
+                <div class="form-group">
+                    <label>Novo Nome </label>
+                    <input type="text" formControlName="NovonomeProd" class="form-control" placeholder="Nome do Produto">
+                </div>
+                <div class="form-group">
+                    <label>Novo Valor</label>
+                    <input type="text" formControlName="NovovalorProd" class="form-control" placeholder="Valor (R$)">
+                </div>
+                <br/>
+                <hr>
+                <h5> Ajustar o Estoque </h5>
+                <div class="form-group">
+                    <label>Quantidade em estoque</label>
+                    <input type="text" formControlName="Novaqtde" class="form-control alteraQtd" placeholder="Quantidade">
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <input type="text" formControlName="NovaDescricao" class="form-control" placeholder="Descrição">
+                </div> <br/>
+                <button type="submit" class="btn btn-success salvar">Salvar</button>
+                </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button"  #closeModal class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+

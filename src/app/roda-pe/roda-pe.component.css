@@ -1,0 +1,38 @@
+p{
+    margin:5px;
+    font-size: 0.8em;
+}
+            
+h2 {
+    margin:5px;
+}
+.rodaPe {
+    margin-top: 500px;
+    position:absolute;
+    background-color: #2d2c28;
+    height: 300px;
+
+}
+            
+.listaElementos {
+    margin-left: 170px;
+    display:inline-block;
+    width:300px;
+    height:200px;            
+}
+            
+.fonteTituloRodaPe {
+    color: #f5f4f3;
+    font-family: 'Nanum Brush Script', cursive;
+}
+            
+.fonteRodaPe {
+    text-decoration: none;
+    color: #798b52;
+    font-size: 1.5em;
+    font-family: 'Nanum Brush Script', cursive;
+}
+            
+.conteudoRodaPe {
+    margin-left: 30px;
+}
