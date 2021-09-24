@@ -1,6 +1,19 @@
 .cliente {
     color: #FFF;
 }
-.btn {
-    margin-right: 5px;
+.menuItem {
+    margin-top: 15px;
+    font-size: 1.6em;
+    text-decoration: none;
+    margin-right: 15px;
+    color: #FCF98D;
+}
+
+.menuItem:hover {
+    color: #FFF;
+}
+
+.menu {
+    background-color: #9BA7FE; 
+    height: 80px;
 }
