@@ -13,6 +13,8 @@ import { ListaProdutosComponent } from './lista-produtos/lista-produtos.componen
 import { AlteraProdutoComponent } from './altera-produto/altera-produto.component';
 import * as $ from 'jquery';
 import * as bootstrap from 'bootstrap';
+import { CadastrarClientesComponent } from './cadastrar-clientes/cadastrar-clientes.component';
+import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import * as bootstrap from 'bootstrap';
     MenuComponent,
     CadastrarProdutosComponent,
     ListaProdutosComponent,
-    AlteraProdutoComponent
+    AlteraProdutoComponent,
+    CadastrarClientesComponent,
+    ListaClientesComponent
   ],
   imports: [
     BrowserModule,

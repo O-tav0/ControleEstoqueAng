@@ -33,8 +33,9 @@
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/popper.js/dist/umd/popper.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" 
-            ]
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" ,
+              "src/assets/js/listaClientes.js",
+              "src/assets/js/viaCep.js"           ]
           },
           "configurations": {
             "production": {

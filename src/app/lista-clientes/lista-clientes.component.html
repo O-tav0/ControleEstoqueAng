@@ -1,0 +1,53 @@
+<br/> 
+<div class="row titulos" >
+    <div class="col col-md-1"> Código</div>
+    <div class="col col-md-2"> Nome</div>
+    <div class="col col-md-1"> E-mail</div>
+    <div class="col col-md-1"> Telefone</div>
+    <div class="col col-md-1"> CPF</div>
+    <div class="col col-md-2"> Data de Nascimento</div>
+    <div class="col col-md-3"> Opções</div>
+</div>
+<div class="row" *ngFor="let cli of listaDosClientes | async">
+    <div class="col col-md-1">{{cli.id_cliente}}  </div>
+    <div class="col col-md-2">  {{cli.nome}}</div>
+    <div class="col col-md-1">  {{cli.email}}</div>
+    <div class="col col-md-1"> {{cli.telefone}}</div>
+    <div class="col col-md-1"> {{cli.cpf}}</div>
+    <div class="col col-md-2"> {{cli.data_nascimento | date:'dd/MM/yyyy' }}</div>
+    <div class="col col-md-3"> 
+        <button class="btn btn btn-danger botao" (click)="excluirCliente(cli.id_cliente)"> Excluir Cliente </button> 
+        <button type="button" class="btn btn btn-secondary" click="esconderMostrarDadosFinanceiros(cli.id_cliente)"> Mostrar Mais <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16" >
+        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+        </svg> </button>  
+    </div>       
+    <div class="row informacoesEndereco" id="enderecoCli">
+        <div class="col col-md-2 titulos">
+           Endereço do Cliente 
+        </div>
+    <div class="row">
+        <div class="col col-md-1"> CEP </div>
+        <div class="col col-md-2"> Cidade </div>
+        <div class="col col-md-1"> Estado </div>
+        <div class="col col-md-3"> Bairro </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-1"> {{cli.cep}}  </div>
+        <div class="col col-md-2"> {{cli.cidade}}  </div>
+        <div class="col col-md-1"> {{cli.uf}}</div>
+        <div class="col col-md-3"> {{cli.bairro}}</div>     
+    </div>
+
+    <div class="row espaco">
+        <div class="col col-md-2"> Rua  </div>
+        <div class="col col-md-2"> Número </div>
+        <div class="col col-md-3"> Complemento </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-2">  {{cli.rua}} </div>
+        <div class="col col-md-2"> {{cli.numero}} </div>
+        <div class="col col-md-3">  {{cli.complemento}} </div>
+    </div>
+</div>
+</div>
+
