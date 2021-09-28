@@ -1,53 +1,143 @@
-<br/> 
-<div class="row titulos" >
+<br />
+
+    <div class="row titulos">
+    
     <div class="col col-md-1"> Código</div>
     <div class="col col-md-2"> Nome</div>
-    <div class="col col-md-1"> E-mail</div>
+    <div class="col col-md-2"> E-mail</div>
     <div class="col col-md-1"> Telefone</div>
     <div class="col col-md-1"> CPF</div>
-    <div class="col col-md-2"> Data de Nascimento</div>
+    <div class="col col-md-1"> Data de Nascimento</div>
     <div class="col col-md-3"> Opções</div>
 </div>
 <div class="row" *ngFor="let cli of listaDosClientes | async">
-    <div class="col col-md-1">{{cli.id_cliente}}  </div>
-    <div class="col col-md-2">  {{cli.nome}}</div>
-    <div class="col col-md-1">  {{cli.email}}</div>
+    <hr>
+    <div class="col col-md-1">{{cli.id_cliente}} </div>
+    <div class="col col-md-2"> {{cli.nome}}</div>
+    <div class="col col-md-2"> {{cli.email}}</div>
     <div class="col col-md-1"> {{cli.telefone}}</div>
     <div class="col col-md-1"> {{cli.cpf}}</div>
-    <div class="col col-md-2"> {{cli.data_nascimento | date:'dd/MM/yyyy' }}</div>
-    <div class="col col-md-3"> 
-        <button class="btn btn btn-danger botao" (click)="excluirCliente(cli.id_cliente)"> Excluir Cliente </button> 
-        <button type="button" class="btn btn btn-secondary" click="esconderMostrarDadosFinanceiros(cli.id_cliente)"> Mostrar Mais <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16" >
-        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
-        </svg> </button>  
-    </div>       
-    <div class="row informacoesEndereco" id="enderecoCli">
-        <div class="col col-md-2 titulos">
-           Endereço do Cliente 
-        </div>
-    <div class="row">
-        <div class="col col-md-1"> CEP </div>
-        <div class="col col-md-2"> Cidade </div>
-        <div class="col col-md-1"> Estado </div>
-        <div class="col col-md-3"> Bairro </div>
+    <div class="col col-md-1"> {{cli.data_nascimento | date:'dd/MM/yyyy' }}</div>
+    <div class="col col-md-3 botoesOpcoes">
+        <button class="btn btn btn-danger botao" (click)="excluirCliente(cli.id_cliente)"> Excluir</button>
+        
+        <button type="button" class="btn btn-primary botao" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" (click)="carregarFormulario(cli.id_cliente)">
+                Alterar
+        </button>
+        <button type="button" class="btn btn btn-secondary botao" (click)="mostrarEndereco(cli.id_cliente)"> Detalhes <svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+            </svg> </button>
     </div>
-    <div class="row">
-        <div class="col col-md-1"> {{cli.cep}}  </div>
-        <div class="col col-md-2"> {{cli.cidade}}  </div>
-        <div class="col col-md-1"> {{cli.uf}}</div>
-        <div class="col col-md-3"> {{cli.bairro}}</div>     
+    <hr>
+    <div class="informacoesEndereco" id="{{cli.id_cliente}}">
+        <div class="col col-md-2 titulos">
+            Endereço do Cliente
+        </div>
+        <div class="row titulos">
+            <div class="col col-md-1"> CEP </div>
+            <div class="col col-md-2"> Cidade </div>
+            <div class="col col-md-1"> Estado </div>
+            <div class="col col-md-3"> Bairro </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-1"> {{cli.cep}} </div>
+            <div class="col col-md-2"> {{cli.cidade}} </div>
+            <div class="col col-md-1"> {{cli.uf}}</div>
+            <div class="col col-md-3"> {{cli.bairro}}</div>
+        </div>
+
+        <div class="row espaco titulos">
+            <div class="col col-md-2"> Rua </div>
+            <div class="col col-md-2"> Número </div>
+            <div class="col col-md-3"> Complemento </div>
+        </div>
+        <div class="row enderecoEspecifico">
+            <div class="col col-md-2"> {{cli.rua}} </div>
+            <div class="col col-md-2"> {{cli.numero}} </div>
+            <div class="col col-md-3"> {{cli.complemento}} </div>  
+        </div>
     </div>
 
-    <div class="row espaco">
-        <div class="col col-md-2"> Rua  </div>
-        <div class="col col-md-2"> Número </div>
-        <div class="col col-md-3"> Complemento </div>
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alteração de Clientes</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" rodutosaria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+    
+            </div>
+            <div class="modal-body">
+                <form class="form-group" [formGroup]="formAtualizaCliente" (ngSubmit)="alterarCliente()">
+                    <h5> Informações pessoais </h5>
+                    <div class="form-group">
+                        <label>Novo Nome </label>
+                        <input type="text" class="form-control" formControlName="nomeCli" placeholder="Nome do Produto">
+                    </div>
+                    <div class="form-group">
+                        <label>Novo E-mail</label>
+                        <input type="text"  class="form-control" formControlName="emailCli" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="text"  class="form-control" formControlName="telefoneCli" placeholder="Telefone">
+                    </div>
+                    <br/>
+                    <hr>
+                    <h5> Endereço </h5>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="inputAddress">CEP</label>
+                            <input type="text" class="form-control" formControlName="cepCli" id="cep" placeholder="CEP" maxlength="9">
+                        </div>
+        
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Cidade</label>
+                            <input type="text" class="form-control" formControlName="cidade" id="cidade" placeholder="Cidade">
+                        </div>
+        
+                        <div class="form-group col-md-1">
+                            <label for="inputAddress">UF </label>
+                            <input type="text" class="form-control" formControlName="uf" id="uf" placeholder="UF">
+                        </div>
+        
+                        <div class="form-group col-md-5">
+                            <label for="inputAddress">Bairro</label>
+                            <input type="text" class="form-control" formControlName="bairro" id="bairro" placeholder="Bairro">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="inputAddress">Rua</label>
+                            <input type="text" class="form-control" formControlName="rua" id="rua" placeholder="Rua">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputAddress">Número</label>
+                            <input type="text" class="form-control" formControlName="numero" id="inputAddress" placeholder="Número">
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="inputAddress">Complemento</label>
+                            <input type="text" class="form-control" formControlName="complemento" id="inputAddress" placeholder="Complemento">
+                        </div>
+                    </div> <br/>
+                    <button type="submit" class="btn btn-success salvar">Salvar</button>
+                    </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button"  #closeModal class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> 
+            </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col col-md-2">  {{cli.rua}} </div>
-        <div class="col col-md-2"> {{cli.numero}} </div>
-        <div class="col col-md-3">  {{cli.complemento}} </div>
-    </div>
+  </div>
 </div>
-</div>
+
+    
+
+
+  
 

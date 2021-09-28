@@ -21,6 +21,14 @@ export class ClienteService {
         return this.http.delete<Cliente>(`http://localhost:8080/clientesControle/deletar?codigo=${id}`)
     }
 
+    public pesquisarClientePorId(id: number): Promise<any> {
+        return this.http.get(`http://localhost:8080/clientesControle/porID?codigo=${id}`).toPromise().then((resposta: any) => resposta)
+    }
+
+    public alterarCliente(codigo: number, novoNome: string, novoEmail:string, novoTelefone: string, novoCep: string, novaCidade: string, novaUf: string, novoBairro: string, novaRua: string, novoNumero: number, novoComplemento: string) {
+        return this.http.put<any>(`http://localhost:8080/clientesControle/alterarCliente?novoNome=${novoNome}&novoEmail=${novoEmail}&codigo=${codigo}&novoTelefone=${novoTelefone}&novoCep=${novoCep}&novaCidade=${novaCidade}&novaUF=${novaUf}&novoBairro=${novoBairro}&novaRua=${novaRua}&novoNumero=${novoNumero}&novoComplemento=${novoComplemento}`, codigo)
+    }
+
     constructor(private http: HttpClient) {
     }
 }

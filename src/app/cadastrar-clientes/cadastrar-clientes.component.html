@@ -39,23 +39,23 @@
 
                 <div class="form-group col-md-4">
                     <label for="inputAddress">Cidade</label>
-                    <input type="text" class="form-control"  formControlName="cidade" id="cidade" placeholder="Cidade">
+                    <input type="text" class="form-control"  formControlName="cidade" id="cidade" placeholder="Cidade" onchange="atualizaFormulario()">
                 </div>
 
                 <div class="form-group col-md-1">
                     <label for="inputAddress">UF </label>
-                    <input type="text" class="form-control"  formControlName="uf" id="uf" placeholder="UF">
+                    <input type="text" class="form-control"  formControlName="uf" id="uf" placeholder="UF" onchange="atualizaFormulario()">
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="inputAddress">Bairro</label>
-                    <input type="text" class="form-control"  formControlName="bairro" id="bairro" placeholder="Bairro">
+                    <input type="text" class="form-control"  formControlName="bairro" id="bairro" placeholder="Bairro" onchange="atualizaFormulario()">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
                     <label for="inputAddress">Rua</label>
-                    <input type="text" class="form-control"  formControlName="rua" id="rua" placeholder="Rua">
+                    <input type="text" class="form-control"  formControlName="rua" id="rua" placeholder="Rua" onchange="atualizaFormulario()">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputAddress">Número</label>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <br/>
-            <button type="submit" class="btn btn-primary" alingn="center">Cadastrar</button>
+            <button type="submit" class="btn btn-primary" alingn="center" (click)="atualizaFormulario()">Cadastrar</button>
         </form>
     </div>
 </div>

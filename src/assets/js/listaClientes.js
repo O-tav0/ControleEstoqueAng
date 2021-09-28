@@ -1,4 +1,4 @@
-function esconderMostrarDadosFinanceiros(codigo) {
+function esconderMostrar(codigo) {
 
     console.log(codigo)
 

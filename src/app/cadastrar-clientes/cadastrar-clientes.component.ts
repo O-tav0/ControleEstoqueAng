@@ -29,6 +29,21 @@ export class CadastrarClientesComponent implements OnInit {
     complemento: new FormControl()
   })
 
+  public atualizaFormulario() {
+    let valorCep = (<HTMLInputElement>document.getElementById("cep")).value
+    let valorCidade = (<HTMLInputElement>document.getElementById("cidade")).value
+    let valorUF = (<HTMLInputElement>document.getElementById("uf")).value
+    let valorBairro = (<HTMLInputElement>document.getElementById("bairro")).value
+    let valorRua = (<HTMLInputElement>document.getElementById("rua")).value
+    this.formCadastroCliente.setValue({
+      cepCli: valorCep,
+      cidade: valorCidade,
+      uf: valorUF,
+      bairro: valorBairro,
+      rua: valorRua,
+     })
+  }
+
   public cadastrarCliente(): void {
     let novoCliente = new Cliente(this.formCadastroCliente.value.nomeCli, 
       this.formCadastroCliente.value.emailCli, 
@@ -43,9 +58,12 @@ export class CadastrarClientesComponent implements OnInit {
       this.formCadastroCliente.value.numero, 
       this.formCadastroCliente.value.complemento)
 
+    
       this.clienteService.novoCliente(novoCliente).subscribe(() => {
         alert('Cliente foi cadastrado com sucesso!')
       })
+
+      this.ngOnInit()
   }
 
   constructor(private clienteService: ClienteService) { }

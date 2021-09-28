@@ -25,7 +25,7 @@ export class ProdutoService {
 
     public alterarProduto(codigo: number, novoNome: string, novoValor:number, novaQtde: number, novaDescricao: string) {
       return this.http.put<any>(`http://localhost:8080/produtosControle/alterarProduto?novoNome=${novoNome}&novoValor=${novoValor}&codigo=${codigo}&novaQtde=${novaQtde}&novaDescricao=${novaDescricao}`, codigo)
-   }
+    }
 
    public deletarProduto(id: number): Observable<Produto> {
     return this.http.delete<Produto>(`http://localhost:8080/produtosControle/deletar?codigo=${id}`)
