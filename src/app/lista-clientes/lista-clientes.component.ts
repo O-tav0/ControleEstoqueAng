@@ -54,7 +54,7 @@ export class ListaClientesComponent implements OnInit {
       this.formAtualizaCliente.value.complemento)
 
       .subscribe(() => {
-        alert('Produto alterado com sucesso')
+        alert('Cliente alterado com sucesso')
         this.ngOnInit()
         $('#exampleModal').modal('hide')
       })

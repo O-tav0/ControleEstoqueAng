@@ -1,0 +1,25 @@
+.titulo {
+    font-size: 2em;
+}
+
+.carrinho {
+    float: right;
+    font-size: 2.5em;
+}
+
+.adicionarItem {
+    float:right;
+}
+
+.qtdItem {
+    margin-right: 20px;
+}
+
+.finalizarPedido {
+    float:right;
+}
+
+.tituloItens {
+    font-size: 2em;
+    margin-top: 30px;
+}

@@ -3,6 +3,8 @@ import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Produto } from '../produto.model';
 import { ProdutoService } from '../produto.service';
+import { Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cadastrar-produtos',
@@ -17,7 +19,8 @@ export class CadastrarProdutosComponent implements OnInit {
       nomeProd: new FormControl(),
       valorProd: new FormControl(),
       qtde: new FormControl(null),
-      descricao: new FormControl()
+      descricao: new FormControl(),
+      imagem: new FormControl(null, [Validators.required])
   })
 
   public cadastrarProduto(): void {
