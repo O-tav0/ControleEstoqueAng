@@ -2,10 +2,10 @@ import { Cliente } from "./cliente.model";
 import { ItemPedido } from "./itemPedido.model";
 
 export class Pedido {
-    private id_pedido: number
-    private cliente: Cliente
-    private valorTotal: number
-    private listaItens: ItemPedido[]
+    public id_pedido: number
+    public cliente: Cliente
+    public valorTotal: number
+    public listaItens: ItemPedido[]
 
     constructor(cliente: Cliente, listaDeItens: ItemPedido[]) {
         this.cliente = cliente

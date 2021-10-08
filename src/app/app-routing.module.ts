@@ -7,6 +7,7 @@ import { ListaProdutosComponent } from './lista-produtos/lista-produtos.componen
 import { CadastrarClientesComponent } from './cadastrar-clientes/cadastrar-clientes.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
+import { VerPedidosComponent } from './ver-pedidos/ver-pedidos.component';
 
 const routes: Routes = [{path:"cadastrarProdutos", component: CadastrarProdutosComponent},
                         {path:"", component: HomeComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [{path:"cadastrarProdutos", component: CadastrarProdutosC
                         {path:"listarProdutos/:id_produto", component: ListaProdutosComponent} ,
                         {path:"cadastrarCliente", component: CadastrarClientesComponent },
                         {path:"listarClientes", component: ListaClientesComponent},
-                        {path:"fazerPedido", component: RealizarPedidoComponent} 
+                        {path:"fazerPedido", component: RealizarPedidoComponent},
+                        {path: "listarClientes/verPedido/:id_cliente", component: VerPedidosComponent} 
 ];
 
 @NgModule({

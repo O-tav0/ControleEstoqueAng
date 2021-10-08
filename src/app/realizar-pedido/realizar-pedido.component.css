@@ -23,3 +23,27 @@
     font-size: 2em;
     margin-top: 30px;
 }
+
+.tabelaDeItens {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.tituloRodape {
+    font-size: 1.4rem;
+}
+
+.labelTotal {
+    color: green;
+}
+
+.qtdeItem {
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+

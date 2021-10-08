@@ -1,0 +1,15 @@
+<table>
+    <tr *ngFor="let pedidos of pedidosDoCliente | async">
+        <td>
+            {{pedidos.id_pedido}}
+        </td>
+        <td>
+            {{pedidos.cliente}}
+        </td>
+        <td>
+            {{pedidos.valorTotal}}
+        </td>
+        <td>
+            {{pedidos.listaItens}}
+        </td>
+</table>

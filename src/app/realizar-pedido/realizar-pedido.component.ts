@@ -22,6 +22,8 @@ export class RealizarPedidoComponent implements OnInit {
   public listaDosProdutos: Observable<Produto[]>
   public idProdItem: number
   public itensDoPedido: ItemPedido[] = []
+  public produtosDosItens: Produto[] = []
+  public totalPedido = 0
 
   formTeste = new FormGroup({
     idClientePedido: new FormControl(),
@@ -38,10 +40,34 @@ export class RealizarPedidoComponent implements OnInit {
     })
   }
 
+  public aumentarQtdItem(index: number) {
+    this.produtosDosItens[index].qtde ++;
+  }
+
+  public diminuirQtdItem(index: number) {
+    if(this.produtosDosItens[index].qtde == 1) {
+        if (confirm("Deseja remover o item do pedido ?")) {
+        this.produtosDosItens.splice(index, 1)
+        this.totalPedido = this.totalPedido - this.produtosDosItens[index].valor
+      } else {}
+
+    } else {
+      this.produtosDosItens[index].qtde--;
+    }
+  }
+
   public adicionarItemPedido() {
     let novoItem: ItemPedido
+    let totalPedido: number
     novoItem = new ItemPedido(this.formTeste.value.ProdItem, this.formTeste.value.qtdItem)
     this.itensDoPedido.push(novoItem)
+    this.produtoService.getProdutosPorId(this.formTeste.value.ProdItem).then((produtoRecuperado: Produto) => {
+    produtoRecuperado.valor = produtoRecuperado.valor * this.formTeste.value.qtdItem
+    produtoRecuperado.qtde = this.formTeste.value.qtdItem  
+    this.totalPedido = this.totalPedido + (produtoRecuperado.valor) 
+    this.produtosDosItens.push(produtoRecuperado)  
+    })
+    
     alert('Item adicionado ao pedido')
   }
 

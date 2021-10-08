@@ -16,6 +16,7 @@ import * as bootstrap from 'bootstrap';
 import { CadastrarClientesComponent } from './cadastrar-clientes/cadastrar-clientes.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
+import { VerPedidosComponent } from './ver-pedidos/ver-pedidos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.compo
     AlteraProdutoComponent,
     CadastrarClientesComponent,
     ListaClientesComponent,
-    RealizarPedidoComponent
+    RealizarPedidoComponent,
+    VerPedidosComponent
   ],
   imports: [
     BrowserModule,
