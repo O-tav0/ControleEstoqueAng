@@ -5,13 +5,14 @@ import { Injectable } from "@angular/core";
 import { Pedido } from "./pedido.model";
 import { map } from "rxjs/operators"; 
 import { ItemPedidoJava } from "./itemPedidoJava.model";
+import { Produto } from "./produto.model";
 
 @Injectable({
     providedIn: 'root'
   })
 export class PedidoService {
 
-    public realizarPedido(codigoCli: number, itens: ItemPedido[]): Observable<any> {
+    public realizarPedido(codigoCli: number, itens: Produto[]): Observable<any> {
         return this.http.post<any>(`http://localhost:8080/pedidos/novoPedido?idCliente=${codigoCli}`, itens)
     }
 

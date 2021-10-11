@@ -46,4 +46,31 @@
     text-align: center;
 }
 
+.botaoMais {
+    display: inline-block;
+    background: #fff;
+    border: none;
+    padding:4px;
+}
+
+.botaoMais:hover {
+    background-color: #A9A9A9;
+    color: #FFF;
+}
+
+.botaoMenos:hover {
+    background-color:#A9A9A9 ;
+    color: #FFF;
+}
+
+.botaoMenos {
+    display: inline-block;
+    background: #fff;
+    border: none;
+    padding:4px;
+}
+
+.itens {
+    font-size: 1.3rem;
+}
 

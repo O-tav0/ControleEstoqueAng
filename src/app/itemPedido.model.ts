@@ -2,10 +2,10 @@ import { Produto } from "./produto.model"
 
 export class ItemPedido {
     public id: number
-    public qtde: number
+    public qtdeItem: number
 
-    constructor(id: number, qtde: number) {
+    constructor(id: number, qtdeItem: number) {
         this.id = id
-        this.qtde = qtde
+        this.qtdeItem = qtdeItem
     }
 }
