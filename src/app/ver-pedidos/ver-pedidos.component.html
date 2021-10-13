@@ -1,15 +1,72 @@
-<table>
-    <tr *ngFor="let pedidos of pedidosDoCliente | async">
-        <td>
-            {{pedidos.id_pedido}}
-        </td>
-        <td>
-            {{pedidos.cliente}}
-        </td>
-        <td>
-            {{pedidos.valorTotal}}
-        </td>
-        <td>
-            {{pedidos.listaItens}}
-        </td>
-</table>
+<div class="container">
+    <div class="jumbotron">
+        <div class="row titulo cabecalho">
+            <div class="col col-md-3">
+                Número Pedido
+            </div>
+
+            <div class="col col-md-3">
+                Cliente
+            </div>
+
+            <div class="col col-md-3">
+                Valor Total
+            </div>
+
+            <div class="col col-md-3">
+                Opções
+            </div>
+        </div>
+        <div class="row" *ngFor="let pedidos of pedidosDoCliente | async" id="cabecalho{{pedidos.id_pedido}}">
+
+
+            <div class="col col-md-3">
+                {{pedidos.id_pedido}}
+            </div>
+
+            <div class="col col-md-3">
+                {{pedidos.cliente.nome}}
+            </div>
+
+            <div class="col col-md-3">
+                {{pedidos.valorTotal | currency: 'BRL': true}}
+            </div>
+
+            <div class="col col-md-3">
+                <button type="button" (click)="buscarItensDoPedido(pedidos.id_pedido)"> Detalhes </button>
+            </div>
+            <div id="{{pedidos.id_pedido}}" class="itens">
+                <div class=" row titulo">
+                    <div class="col col-md-3">
+                        Produto
+                    </div>
+                    <div class="col col-md-3">
+                        Quantidade no Pedido
+                    </div>
+                    <div class="col col-md-3">
+                        Valor
+                    </div>
+                    <div class="col col-md-3">
+                        Total Item
+                    </div>
+                </div>
+                <div *ngFor="let itens of itensDoPedido | async" class="row">
+                    <div class="col col-md-3">
+                        {{itens.produto.nome}}
+                    </div>
+                    <div class="col col-md-3">
+                        {{itens.qtde}}
+                    </div>
+                    <div class="col col-md-3">
+                        {{itens.produto.valor | currency: 'BRL': true}}
+                    </div>
+                    <div class="col col-md-3">
+                        {{itens.valorItem | currency: 'BRL': true}}
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+        </div>
+    </div>
+</div>

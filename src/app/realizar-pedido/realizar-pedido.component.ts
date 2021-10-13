@@ -45,11 +45,6 @@ export class RealizarPedidoComponent implements OnInit {
   }
 
   public adicionarItemPedido() {
-    //let novoItem: ItemPedido;
-    //let totalPedido: number;
-    //novoItem = new ItemPedido(this.formTeste.value.ProdItem, this.formTeste.value.qtdItem)
-    //this.itensDoPedido.push(novoItem)
-
     this.produtoService
       .getProdutosPorId(this.formTeste.value.ProdItem)
       .then((produtoRecuperado: Produto) => {
@@ -71,7 +66,6 @@ export class RealizarPedidoComponent implements OnInit {
   public aumentarQtdItem(index: number) {
     this.produtosDosItens[index].qtde++;
     this.totalPedido = this.totalPedido + this.produtosDosItens[index].valor;
-    console.log(this.produtosDosItens[index]);
   }
 
   public diminuirQtdItem(index: number) {

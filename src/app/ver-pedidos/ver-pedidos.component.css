@@ -1,0 +1,10 @@
+.itens {
+    display:none;
+    margin-top: 10px;
+}
+
+.titulo {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+

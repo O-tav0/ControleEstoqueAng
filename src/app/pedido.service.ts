@@ -16,8 +16,16 @@ export class PedidoService {
         return this.http.post<any>(`http://localhost:8080/pedidos/novoPedido?idCliente=${codigoCli}`, itens)
     }
 
-    public verItensDoPedido(codigo: number): Observable<Pedido[]> {
-        return this.http.get(`http://localhost:8080/pedidos/procurarItensPedidoPorId?codigo=${codigo}`).pipe(map((resposta: any) => resposta))
+    public pedidosPorCliente(codigo: number): Observable<Pedido[]> {
+        return this.http.get(`http://localhost:8080/pedidos/porCliente?codigo=${codigo}`).pipe(map((resposta: any) => resposta))
+    }
+
+    public todosOsPedidos(): Observable<Pedido[]> {
+        return this.http.get("http://localhost:8080/pedidos/todosOsPedidos").pipe(map((resposta: any) => resposta))
+    }
+
+    public itensDoPedido(codigo: number): Observable<ItemPedidoJava[]> {
+        return this.http.get(`http://localhost:8080/pedidos/itensDoPedido?codigo=${codigo}`).pipe(map((resposta: any) => resposta))
     }
 
     constructor(private http: HttpClient) {
