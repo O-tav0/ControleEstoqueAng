@@ -9,32 +9,32 @@ import { ItemPedidoJava } from '../itemPedidoJava.model';
 @Component({
   selector: 'app-ver-pedidos',
   templateUrl: './ver-pedidos.component.html',
-  styleUrls: ['./ver-pedidos.component.css']
+  styleUrls: ['./ver-pedidos.component.css'],
 })
 export class VerPedidosComponent implements OnInit {
-
-  public idCli: number
-  public pedidosDoCliente: Observable<Pedido[]>
-  public itensDoPedido: Observable<ItemPedidoJava[]>
+  public idCli: number;
+  public pedidosDoCliente: Observable<Pedido[]>;
+  public itensDoPedido: Observable<ItemPedidoJava[]>;
 
   public buscarItensDoPedido(codigo: number) {
-    this.itensDoPedido = this.pedidoService.itensDoPedido(codigo)
-
-    let displayAtualItens = document.getElementById(`${codigo}`);
-    if (displayAtualItens!.style.display === "block") {
-      displayAtualItens!.style.display = "none";
-
+    this.itensDoPedido = this.pedidoService.itensDoPedido(codigo);
+    let divAtual = document.getElementById(`${codigo}`);
+    if (divAtual!.style.display === 'block') {
+      divAtual!.style.display = 'none';
     } else {
-      displayAtualItens!.style.display = "block";
+      divAtual!.style.display = 'block';
     }
   }
 
-  constructor(private rota: ActivatedRoute, private pedidoService: PedidoService) { }
+  constructor(
+    private rota: ActivatedRoute,
+    private pedidoService: PedidoService
+  ) {}
 
   ngOnInit(): void {
     this.rota.params.subscribe((parametro: any) => {
-      this.idCli = parametro.id_cliente
-      this.pedidosDoCliente = this.pedidoService.pedidosPorCliente(this.idCli)
-    })
+      this.idCli = parametro.id_cliente;
+      this.pedidosDoCliente = this.pedidoService.pedidosPorCliente(this.idCli);
+    });
   }
 }

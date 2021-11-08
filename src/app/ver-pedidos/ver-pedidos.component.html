@@ -1,5 +1,6 @@
 <div class="container">
     <div class="jumbotron">
+
         <div class="row titulo cabecalho">
             <div class="col col-md-3">
                 Número Pedido
@@ -14,12 +15,10 @@
             </div>
 
             <div class="col col-md-3">
-                Opções
             </div>
         </div>
-        <div class="row" *ngFor="let pedidos of pedidosDoCliente | async" id="cabecalho{{pedidos.id_pedido}}">
-
-
+        <div class="row infoPedido" *ngFor="let pedidos of pedidosDoCliente | async"
+            id="cabecalho{{pedidos.id_pedido}}">
             <div class="col col-md-3">
                 {{pedidos.id_pedido}}
             </div>
@@ -32,16 +31,26 @@
                 {{pedidos.valorTotal | currency: 'BRL': true}}
             </div>
 
-            <div class="col col-md-3">
-                <button type="button" (click)="buscarItensDoPedido(pedidos.id_pedido)"> Detalhes </button>
+            <div class="col col-md-3 detalhes">
+                <a (click)="buscarItensDoPedido(pedidos.id_pedido)"> Detalhes <svg xmlns="http://www.w3.org/2000/svg"
+                        width="20" height="20" fill="currentColor" class="bi bi-chevron-double-down"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        <path fill-rule="evenodd"
+                            d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                    </svg> </a>
             </div>
-            <div id="{{pedidos.id_pedido}}" class="itens">
+            <div id="{{pedidos.id_pedido}}" class="itens expandable">
                 <div class=" row titulo">
                     <div class="col col-md-3">
                         Produto
                     </div>
-                    <div class="col col-md-3">
-                        Quantidade no Pedido
+                    <div class="col col-md-2">
+                        Quantidade
+                    </div>
+                    <div class="col col-md-1">
+
                     </div>
                     <div class="col col-md-3">
                         Valor
@@ -54,13 +63,16 @@
                     <div class="col col-md-3">
                         {{itens.produto.nome}}
                     </div>
-                    <div class="col col-md-3">
+                    <div class="col col-md-2 qtde">
                         {{itens.qtde}}
+                    </div>
+                    <div class="col col-md-1">
+                        X
                     </div>
                     <div class="col col-md-3">
                         {{itens.produto.valor | currency: 'BRL': true}}
                     </div>
-                    <div class="col col-md-3">
+                    <div class="col col-md-3 totalItem">
                         {{itens.valorItem | currency: 'BRL': true}}
                     </div>
                 </div>
@@ -68,5 +80,6 @@
             </div>
 
         </div>
+
     </div>
 </div>

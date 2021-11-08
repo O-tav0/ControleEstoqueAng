@@ -1,77 +1,80 @@
 .titulo {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 .carrinho {
-    float: right;
-    font-size: 2.5em;
+  float: right;
+  font-size: 2.5em;
 }
 
 .adicionarItem {
-    float:right;
+  float: right;
 }
 
 .qtdItem {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .finalizarPedido {
-    float:right;
+  float: right;
 }
 
 .tituloItens {
-    font-size: 2em;
-    margin-top: 30px;
+  font-size: 2em;
+  margin-top: 30px;
 }
 
 .tabelaDeItens {
-    width: 100%;
-    margin-top:20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .tituloRodape {
-    font-size: 1.4rem;
-    font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .labelTotal {
-    color: green;
+  color: green;
 }
 
 .qtdeItem {
-    display: inline-block;
-    width: 40px;
-    height: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
 }
 
 .botaoMais {
-    display: inline-block;
-    background: #fff;
-    border: none;
-    padding:4px;
+  display: inline-block;
+  background: #fff;
+  border: none;
+  padding: 4px;
 }
 
 .botaoMais:hover {
-    background-color: #A9A9A9;
-    color: #FFF;
+  background-color: #a9a9a9;
+  color: #fff;
 }
 
 .botaoMenos:hover {
-    background-color:#A9A9A9 ;
-    color: #FFF;
+  background-color: #a9a9a9;
+  color: #fff;
 }
 
 .botaoMenos {
-    display: inline-block;
-    background: #fff;
-    border: none;
-    padding:4px;
+  display: inline-block;
+  background: #fff;
+  border: none;
+  padding: 4px;
 }
 
 .itens {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
+.imgProd {
+  border-radius: 50%;
+}

@@ -1,25 +1,46 @@
 <div class="container inicio">
     <div class="jumbotron">
-        <h1 align="center"> Cadastrar Produto </h1> <br/> 
-        <form class="form-group" [formGroup]="formCadastroProd" (ngSubmit)="cadastrarProduto()">
+
+        <h1 align="center"> Cadastrar Produto </h1> <br />
+
+        <form class="form-group" [formGroup]="formCadastroProd" (ngSubmit)="cadastrarProduto()"
+            enctype="multipart/form-data">
             <div class="form-group">
                 <label>Nome Produto</label>
                 <input type="text" formControlName="nomeProd" class="form-control" placeholder="Nome do Produto">
             </div>
+
+            <div class="form-group">
+                <label>Imagem</label>
+                <input #imgProd type="file" class="form-control" (change)="handleFileInput($any(imgProd.files))">
+            </div>
+
             <div class="form-group">
                 <label>Valor</label>
                 <input type="text" formControlName="valorProd" class="form-control" placeholder="Valor (R$)">
             </div>
             <div class="form-group">
                 <label>Quantidade</label>
-                <input type="text" formControlName="qtde" class="form-control" placeholder="Quantidade de entrada em estoque">
+                <input type="text" formControlName="qtde" class="form-control"
+                    placeholder="Quantidade de entrada em estoque">
             </div>
             <div class="form-group">
                 <label>Descrição</label>
                 <input type="text" formControlName="descricao" class="form-control" placeholder="Descrição">
             </div>
-            <input type="submit" class="btn btn-primary botao" value="Cadastrar"> 
+            <input type="submit" class="btn btn-primary botao" value="Cadastrar">
         </form>
+
+        <!-- 
+        <form class="form-group" [formGroup]="formImagem" method="post" enctype="multipart/form-data"
+                action="http://localhost:8080/produtosControle/uploadImagens">
+                <div class="form-group">
+                    <label> Imagem do Produto </label>
+                    <input type="file" formControlName="image" name="image" class="form-control">
+                    <input type="submit" class="btn btn-success" /> Enviar
+                </div>
+            </form>
+    -->
+
     </div>
 </div>
-

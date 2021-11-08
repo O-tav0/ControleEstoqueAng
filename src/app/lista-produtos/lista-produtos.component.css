@@ -1,11 +1,20 @@
 .linha {
-    margin: 10px;
+  margin: 10px;
 }
 
 .alteraQtd {
-    width: 120px;
+  width: 120px;
 }
 
 .salvar {
-    width: 100%;
+  width: 100%;
+}
+
+.linha:hover {
+  border: 2px solid black;
+}
+
+.imgProd {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
